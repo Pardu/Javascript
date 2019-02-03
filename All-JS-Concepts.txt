@@ -1,0 +1,1053 @@
+// JS Concepts
+
+// Array Methods
+// concat method
+function demoFunction(){
+    var boys = ["John", "Mike"];
+    var girls = ["Kate", "Danaya"];
+    alert(boys.concat(girls));
+}
+demoFunction();
+
+var boys = ["John", "Mike"];
+var girls = ["Kate", "Danaya"];
+alert(boys.concat(girls));
+
+var boys = ["John", "Mike"];
+var girls = ["Kate", "Danaya"];
+function demoFunction2(){
+    alert(boys.concat(girls));
+}
+demoFunction2();
+
+// fill method
+var boys = ["Hitesh", "John", "Mike"];
+alert(boys.fill("Vidur"));
+
+// String Indexes Length finding using  Object.keys().length Method
+var person = [];
+person["name"] = "Vidur";
+person["age"] = 9;
+
+cosole.log(person[].length);
+cosole.log(Object.keys(person).length);
+
+// Functions
+console.log("Difference is " +
+    (function(a, b) {
+        var c = a - b;
+        return c;
+    })(50, 20)
+);
+
+// Callback function
+function doProcess(x, y, showDifference){
+    return x + y;
+    showDifference(x, y);
+}
+console.log(doProcess(10,20,showDifference));
+
+function showDifference(a, b){
+    return a - b;
+}
+console.log(showDifference(10,20));
+
+// Closures
+/*
+Ex 1
+var passed = 3;
+var addTo = function(){
+    var inner = 2;
+    return passed + inner;
+}
+console.log(addTo(passed));
+// console.dir(addTo(passed));
+*/
+
+var addTo = function(passed){
+    var add = function(inner){
+        return passed + inner;
+    }
+    return add;
+};
+var addThree = new addTo(3);
+var addFour = new addTo(4);
+console.dir(addThree);
+
+// JSON Stringify
+var obj = {
+    "name": "Vidur",
+    "age": "9",
+    "isMarried": false
+};
+console.log(obj);
+var result = JSON.stringify(obj);
+console.log(result);
+
+// //////////////////////////////// JS Reverse Pyramids /////////////////////////////////////////////////////////////////////
+var p = "Welcome to Javascript";
+var txt = "";
+for(k in p){
+    txt += p[k];
+    //console.log(txt);
+}
+
+// console.log(p.length);
+// var txt2 = "";
+// for(var i = p.length; i > 0 ; i++){
+//     for(var j=i; j>=0; j--){
+//         console.log(j);
+//     }
+//     console.log("</br>");
+// }
+
+var rows = 5;
+var cols = 5;
+for(var i = 1; i <= rows; i++){
+    for(var j = 1; j <= cols; j++){
+        console.log("* ");
+    }
+    console.log("</br>");
+}
+
+
+// //////////////////////////////// JS Pyramids /////////////////////////////////////////////////////////////////////
+// var x = "           Welcome to                                 Javascript                   ";
+// console.log(x);
+// console.log(x.trim());
+
+// var y = "Welcome to Javascript Javascript";
+// console.log(y.replace("Javascript", "Microsoft"));
+
+// // console.log(y.match("Javascript").replace("Microsoft"));
+
+// console.log(y.replace(/Javascript/g, "Microsoft"));
+
+
+// console.log(y.charAt(0));
+// console.log(y.charCodeAt("w"));
+
+// var z = "Welcome,to Javascript Javascript";
+// var s = z.split(",");
+// console.log(s);
+// console.log(s[0]);
+
+// function generatePyramid() {
+//     var totalNumberofRows = 5,
+//         arr;
+//     for (var i = 1; i <= totalNumberofRows; i++) {
+//         arr = [];
+//         for (var j = 1; j <= i; j++) {
+//             arr.push(j);            
+//         }
+//         console.log(arr.join(" ") + "\n");
+//     }
+// }
+// console.log(generatePyramid());
+
+// pyramid working
+// var str = "Welcome to Javascript";
+// var txt = "";
+// for(k in str){
+//     txt += str[k];
+//     console.log(txt);
+// }
+
+ //str2.reverse is not a function
+var str2 = "Welcome to Javascript";
+// console.log(str2.reverse());
+
+var splitStr = str2.split("").reverse();
+//var reverseArr = splitStr.reverse();
+console.log(splitStr.join(""));
+
+// console.log(splitStr);
+// console.log(splitStr.reverse());
+
+// String reverse
+// var str = 'Welcome to Javascript';
+// var reverseStr = '';
+// for(var i = str.length-1; i>= 0; i--){
+//     reverseStr += str[i];
+// }
+// console.log(reverseStr);
+
+
+//pyramid working
+// var str = "Welcome to Javascript";
+// var txt = "";
+// for(k in str){
+//     txt += str[k];
+//     console.log(txt);
+    
+// }
+
+
+// like all in sentence
+// e occurance is 2
+
+
+function reverseString(str) {
+    // Step 1. Use the split() method to return a new array
+    var splitString = str.split(""); // var splitString = "hello".split("");
+    // ["h", "e", "l", "l", "o"]
+ 
+    // Step 2. Use the reverse() method to reverse the new created array
+    var reverseArray = splitString.reverse(); // var reverseArray = ["h", "e", "l", "l", "o"].reverse();
+    // ["o", "l", "l", "e", "h"]
+ 
+    // Step 3. Use the join() method to join all elements of the array into a string
+    var joinArray = reverseArray.join(""); // var joinArray = ["o", "l", "l", "e", "h"].join("");
+    // "olleh"
+    
+    //Step 4. Return the reversed string
+    return joinArray; // "olleh"
+}
+ 
+console.log(reverseString("hello"));
+
+
+// //////////////////////////////// JSON Data Display in Table /////////////////////////////////////////////////////////////////////
+var students = [{
+    "name": "Ram",
+    "email": "ram@gmail.com",
+    "address": {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "country": "India"
+    },
+    "college": "Loyola Academy",
+    "college_address": {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500025"
+    }
+}, {
+    "name": "Raju",
+    "email": "raju@gmail.com",
+    "address": {
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "India"
+    },
+    "college": "ABC Academy",
+    "college_address": {
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "pincode": "720025"
+    }
+}, {
+    "name": "Ravi",
+    "email": "ravi@gmail.com",
+    "address": {
+        "city": "Selam",
+        "state": "Tamilnadu",
+        "country": "India"
+    },
+    "college": "XYZ Academy",
+    "college_address": {
+        "city": "Chennai",
+        "state": "Tamilnadu",
+        "pincode": "874035"
+    }
+}];
+
+var addrlength = Object.keys(students[2].address).length;
+
+var html = "<table class='table table-bordered'>";
+
+for (var i = 0; i < students.length; i++) {
+    html += "<tr>";
+    html += "<td>" + students[i].name + "</td>";
+    html += "<td>" + students[i].email + "</td>";
+    html += "<td>" + students[i].address.city + "</td>";
+    html += "<td>" + students[i].address.state + "</td>";
+    html += "<td>" + students[i].address.country + "</td>";
+    /*
+                    for(var k = 0; k < addrlength; k++) {
+                        html += "<td>" + students[k].city + "</td>";
+                        html += "<td>" + students[k].state + "</td>";
+                        html += "<td>" + students[k].country + "</td>";
+                    }
+*/
+    html += "<td>" + students[i].college + "</td>";
+    html += "<td>" + students[i].college_address.city + "</td>";
+    html += "<td>" + students[i].college_address.state + "</td>";
+    html += "<td>" + students[i].college_address.pincode + "</td>";
+    html += "</tr>";
+}
+
+html += "</table>";
+document.getElementById("table2").innerHTML = html;
+
+
+// //////////////////////////////// JS if/else Conditions /////////////////////////////////////////////////////////////////////
+var a = "pardu"; 
+var b = 7; 
+if (a==b){ console.log("true")}
+
+var a = "pardu"; 
+var b = "shekar"; 
+if (a==b){ console.log("true")}
+else { console.log("false")}
+
+console.log("9" === "7")
+console.log("pardu" === "shekar")
+
+console.log(typeof(null))
+console.log(typeof(undefined))
+
+
+// //////////////////////////////// JS concat() Method //////////////////////////////////////////////////////
+var name = "Pardu";
+var designation = " UI/UX Developer";
+console.log(name.concat(designation));
+
+// //////////////////////////////// JS occurance method in string /////////////////////////////////////////////////////////
+// occurance method in string
+var str = "Welcome to Javascript. Javascripto is used to build webpages dynamically to web applicatons.";
+var patt1 = /t/g;
+var result = str.match(patt1);
+// console.log(result);
+console.log("'t' occurance " + result.length + " times.");
+
+var patt2 = /Javascript/g;
+var result2 = str.match(patt2);
+// console.log(result2);
+console.log("'Javascript' occurance " + result2.length + " times.");
+
+///////////////////////////////// JS For Loops /////////////////////////////////////////////
+// print upto 0-10
+for(var i=0; i<=10; i++){
+    console.log(i);
+}
+console.log("***************************");
+//or
+for(var i=0; i<11; i++){
+    console.log(i);
+}
+// for odd numbers
+console.log("************ odd numbers *****************");
+for(var i = 1; i <= 10; i+=2){
+    console.log(i);
+}
+function odds () {
+    var i;
+    for (i = 1; i < 1000; i++,i++) {
+        console.log(i + '<br>');
+    }               
+};
+
+console.log("************ even numbers *****************");
+// for even numbers
+for(var i = 0; i <= 10; i+=2){
+    console.log(i);
+}
+
+function evens () {
+    var i;
+    for (i = 2; i <= 1000; i++,i++) {
+        console.log(i + '<br>');
+    }
+};
+evens();
+setTimeout(odds, 2000);
+
+console.log("************ Array loop concept *****************");
+var cars = ["BMW", "Audi", "VOlkswagen", "Toyota"];
+for(var i=0; i<cars.length; i++){
+    console.log(cars[i]);
+    console.log(i);
+}
+console.log(cars);
+
+console.log("************ Object loop concept *****************");
+var data = {
+    name: "John",
+    age: 27,
+    maritalStatus: false
+}
+console.log(data[name]);
+for(var k in data){
+    console.log(k);
+    console.log(k, data[k]);
+}
+
+///////////////////////////////// JS While Loop /////////////////////////////////////////////
+function whileLoopFunction(){
+    var count = "";
+    var i = 0;
+    do{
+        count += "<br>The number is" + i;
+        i++;
+    }
+    while(i < 10);
+    console.log(count);
+}
+whileLoopFunction();
+
+
+////////////////////////////////// JS lowest highest Values finding from Array ////////////////////////////////////////////
+var nums = [7,8,99,42,2,3,4,5];
+
+var s = nums.sort();
+console.log(s);
+var lowest = s[0];
+console.log(lowest);
+var highest = s.length;
+console.log(highest);
+
+
+// Minimum Value
+var arr = [3, 4, 12, 1, 0, 5];
+var min = arr[0];
+for (var k = 1; k < arr.length; k++) {
+  if (arr[k] < min) {
+    min = arr[k];
+  }
+}
+console.log("Min is: " + min);
+
+// Maximum Value
+var arr = [3, 4, 12, 1, 0, 5];
+var max = arr[0];
+for (var k = 1; k < arr.length; k++) {
+  if (arr[k] > max) {
+    max = arr[k];
+  }
+}
+console.log("Max is: " + max);
+
+
+////////////////////////////////// Martices Pattern (or) JS Split One Array into Arrays ////////////////////////////////////////////
+function chunkArray(myArray, chunk_size){
+    var index = 0;
+    var arrayLength = myArray.length;
+    var tempArray = [];
+    
+    for (index = 0; index < arrayLength; index += chunk_size) {
+        myChunk = myArray.slice(index, index+chunk_size);
+        // Do something if you want with the group
+        tempArray.push(myChunk);
+    }
+
+    return tempArray;
+}
+// Split in group of 3 items
+var result = chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
+// Outputs : [ [1,2,3] , [4,5,6] ,[7,8] ]
+console.log(result);
+
+
+////////////////////////////////// JS Filter Method ////////////////////////////////////////////
+/*
+Definition and Usage
+The filter() method creates an array filled with all array elements that pass a test (provided as a function).
+
+Note: filter() does not execute the function for array elements without values.
+
+Note: filter() does not change the original array.
+
+Syntax:-
+var newArray = array.filter(function(item) {
+  return condition;
+});
+*/
+
+// Ex:- 1
+let nums = [1,2,3,4,5,6,7]
+let filNums = nums.filter(function filFun(num){
+  return num > 3;
+});
+console.log(filNums.join(", "));
+
+// Ex:- 2
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+function checkWords(word){
+    return word.length > 6;
+}
+
+function filterFunction(){
+    console.log(words.filter(checkWords));
+}
+filterFunction();
+
+
+////////////////////////////////// JS Regular Expressions ////////////////////////////////////////////
+var str = /abc/;
+var str1 = new RegExp("abx");
+
+console.log(str.test("abcde"));
+console.log(str1.test("abxcde"));
+console.log(/[0123456789]/.test("2019"));
+
+console.log(/[0-9]/.test("2019"));
+
+console.log(/\d/.test("2019"));
+
+
+console.log(/\d./.test("."));
+console.log("************");
+
+var digits = /[^01]/;
+console.log(digits.test("23564879"));
+console.log(digits.test("10001100111"));
+
+console.log("************");
+
+var localdatetime = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
+console.log(localdatetime.test("01-12-2018 08:15"));
+
+console.log(localdatetime.test("01-dec-2018 08:15"));
+
+console.log("************");
+console.log(/'\d+'/.test("'789'"));
+
+console.log(/'\d+'/.test("''")); // 1 or more chars
+
+console.log(/'\d*'/.test("''")); // o or more chars
+
+console.log("************");
+console.log(/pardu?p/.test("pardup")); // ? means optional
+console.log(/pardu?w/.test("parduw"));
+console.log(/pardu?x/.test("pard"));
+
+console.log("************");
+var date_time = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/
+console.log(date_time.test("01-04-2018 07:45"));
+
+console.log("******* Phone *****");
+let landlineRegEx = /\d{2,3}-\d{8}/;
+console.log(phNumberRegex.test("040-22457195"));
+
+////////////////////////////////// JS Palindrome Test using Regular Expressions ////////////////////////////////////////////
+function palindrome(str) {
+  var re = /[\W_]/g;
+  var lowRegStr = str.toLowerCase().replace(re, '');
+  var reverseStr = lowRegStr.split('').reverse().join(''); 
+  return reverseStr === lowRegStr;
+}
+console.log(palindrome("A man, a plan, a canal. Panama"));
+console.log(palindrome("A man, a plan, a canal."));
+console.log(palindrome("eye"));
+console.log(palindrome("racecar"));
+
+
+////////////////////////////////// JS indexOf with Regular Expressions ////////////////////////////////////////////
+var j = "Welcome to Javascript!";
+// console.log(j.search("sc"));
+// console.log(j.indexOf("sc"));
+
+// console.log(j.indexOf(/sc/));
+
+// var reg = /sc/;
+// console.log(j.indexOf(reg));
+// console.log(j.search(reg));
+
+// var string = "string to search for substring";
+// var expr = /sea/;  // no quotes here
+// var expr2 = /bst/;
+//console.log(string.indexOf(expr)); // result: -1 - not possible
+//console.log(string.search(expr)); // result: 10
+//console.log(string.search(expr, expr2)); // result: 10 - not possible
+//console.log(string.indexOf(expr, expr2)); //  - not possible
+
+var str = "string to search for substring";
+// var expr = /sea/;
+var result = str.substring(7);
+// console.log(result);
+
+var result = str.substr(-9, 15);
+//console.log(result);
+
+//console.log(str.replace("substring", "Pardu"));
+console.log(str + ", " - result);
+
+console.log(str.concat(", ", result));
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  var a = fruits.lastIndexOf(1);
+  console.log(a);
+
+var str = 'Fabric Closed Flat Knit Collar';
+var lastWord = str.match(/\w+$/)[0];
+console.log(lastWord);
+
+var data = "Welcome to Javascript";
+var s = data.split(" ").splice(-1)
+console.log(s[0]);
+
+
+var inp = 123456; 
+var regex = /123456/g;
+function matchInput(){
+  if(inp === regex){
+    alert(inp === regex);
+    return console.log("Successful match");
+  }
+}
+matchInput();
+
+////////////////  Find Position and insert Element or Array in that position  //////////////////////////////
+// Ex 1
+// var array = ['foo', 'bar', 1, 2, 3],
+//         insertAtIndex = 2,
+//         stringToBeInserted = 'someString';
+// var arrayToBeInserted = ["x", "y", "z"];
+
+// // insert string 'someString' into the array at index 2
+// array.splice( insertAtIndex, 0, arrayToBeInserted );
+
+// console.log(array);
+
+// Ex 2 - Dynamic data add, remove
+// var strings = ["15S", "16S", "17S", "18S", "19S", "21S", "22S", "23S", "24S", "25S", "26S"];
+// strings.splice(6,0,"20S");
+
+
+/*
+var strings = ["15S", "16S", "17S", "18S", "19S", "25S", "26S", "27S", "28S"];
+var addArray = ["20S", "21S", "22S", "23S", "24S"]
+
+// add array
+console.log("*************** add array ******************");
+strings.splice(5,0,addArray);
+console.log(strings);
+
+// remove array
+console.log("*************** remove array ******************");
+var n = addArray.length;
+strings.splice(5,n-4);
+
+console.log(strings);
+*/
+
+var arr = [ 'A', 'B', 'D', 'E' ];
+arr.splice(2,0, 'C');
+// 2 is index position - where u want to insert an element
+//0 is remove
+console.log(arr);
+
+////////////////////////  Find Repeated & Non Repeated Letters from Strring  //////////////////////////////////
+// () => {} -> syntax
+let addFun = (x,y) => {return x+y}
+console.log(addFun(9,10));
+
+// let addFun = (x,y) => {return x + y};
+let addFun2 = (x,y) => x + y;
+console.log(addFun(9,10));
+
+let addFun3 = x => x + x;
+console.log(addFun2(9));
+
+
+let thisFun = (age) => { 
+  // console.log(this);
+  return this.age;
+}
+
+// let addVal = new thisFun(9);
+// console.log(addVal);
+
+// Ex:-
+let test = {
+  prop: 42,
+  func: function() {
+    return this.prop;
+  },
+};
+
+console.log(test.func());
+
+const items = [1, 29, 47];
+const copy = [];
+
+items.forEach(function(item, index){
+  copy.push(item*item);
+});
+console.log(copy[1]);
+
+var elements = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
+
+elements.map(function(element) {
+  return element.length;
+}); // this statement returns the array: [8, 6, 7, 9]
+
+// The regular function above can be written as the arrow function below
+elements.map((element) => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When there is only one parameter, we can remove the surrounding parenthesies:
+elements.map(element => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When the only statement in an arrow function is `return`, we can remove `return` and remove
+// the surrounding curly brackets
+elements.map(element => element.length); // [8, 6, 7, 9]
+
+// In this case, because we only need the length property, we can use destructing parameter:
+// Notice that the string `"length"` corresponds to the property we want to get whereas the
+// obviously non-special `lengthFooBArX` is just the name of a variable which can be changed
+// to any valid variable name you want
+elements.map(({ "length": lengthFooBArX }) => lengthFooBArX); // [8, 6, 7, 9]
+
+// This destructing parameter assignment can be written as seen below. However, note that there
+// is no specific `"length"` to select which property we want to get. Instead, the literal name
+// itself of the variable `length` is used as the property we want to retrieve from the object.
+elements.map(({ length }) => length); // [8, 6, 7, 9]
+
+///////////////////////////  Find Vowels and Consonents  ///////////////////////////////////////////////////////
+var vowels = "aeiou";
+var label = "welcome to javascript";
+
+var stripped = "";
+for (i = 0; i < label.length; i++) {
+  if(vowels.indexOf(label[i]) >= 0) stripped += label[i];
+}
+console.log(stripped);
+
+function removeVowels(label) {
+  return label.replace(/[aeiou]/gi, '');
+}
+console.log(removeVowels(label));
+
+
+////////////////////////////////  Finding Highest Difference  //////////////////////////////////////////////////
+var a = [22, 2, 4, 5, 6, 444, 1, 666];
+
+// declare variables
+var minNumber = a[0],                   // initilize to first element
+    maxNumber = a[0],                   // --- ^
+    minNumberIndex = 0,                 // min index
+    maxNumberIndex = a.length - 1;      // max index
+
+// loop through each element in array
+for(i = 0; i < a.length; i++) {
+
+    // find min
+    if (a[i] < minNumber && i < maxNumberIndex) {
+        minNumber = a[i];
+        minNumberIndex = i;
+    }
+
+    // find max
+    if (a[i] >= maxNumber && i > minNumberIndex) {
+        maxNumber = a[i];
+        maxNumberIndex = i;
+    }
+}
+
+// return results
+console.log("max: \t" + maxNumber);
+console.log("min: \t" + minNumber + "index: " + minNumberIndex);
+console.log(maxNumber - minNumber); 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                           ES6 Concepts
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+let const Differences
+
+/*
+The difference between let and const is that once you bind a value/object to a variable using const, 
+you can't reassign to that variable.
+
+Summary:
+Both the let and the const keyword are ways to declare block scoped variables. There is one big difference though:
+
+Variables declared with let can be reassigned.
+Variables declared with const have to be initialized when declared and can't be reassigned.
+
+Why should we use this?
+If we know that we want to assign a variable once and that we don't want to reassign the variable, using the const keywords offers the following advantages:
+
+We communicate in our code that we don't want to reassign the variable. This way if other programmmers look to your code (or even you to your own code you wrote a while ago) you know that the variables which are declared with const should not be reassigned. This way our code becomes more declarative and easier to work with.
+We force the principle of not being able to reassign a variable (JS engine throws error). This way if you accidentally try to reassign a variable which is not meant to be reassigned you can detect this at an earlier stage (because it's logged to the console).
+
+*/
+// Ex 1:--
+var a = 7;
+function add(x, y){
+  return x + y;  
+};
+a = add(2,3);
+console.log(a);
+
+/*
+const d = 9;
+console.log(d);
+d = a;
+console.log(d);
+
+
+const something = {};
+something = 10;  // Error
+
+let somethingElse = {};
+somethingElse = 1000; // This is fine
+console.log(somethingElse);
+*/
+
+const newArr = [];
+newArr.push(9,8,7,6,5,4,3,2,1,0); // Works fine.
+
+var nums = "";
+for(var i=0; i<=newArr.length; i++){
+  nums += newArr[i] + ",";
+}
+var splt = nums.split(",");
+// console.log(splt.join(", ")); 
+
+
+// Doubt
+const valArr = [0, 1, 2];
+valArr[3] = 3;
+console.log(valArr);
+
+let v = 200;
+function myFun(){
+    v = 100;
+}
+myFun();
+// console.log(s);
+
+
+///////////////////////////////////////  Arrow Functions  ////////////////////////////////////////////////
+// () => {} -> syntax
+let addFun = (x,y) => {return x+y}
+console.log(addFun(9,10));
+
+// let addFun = (x,y) => {return x + y};
+let addFun2 = (x,y) => x + y;
+console.log(addFun(9,10));
+
+let addFun3 = x => x + x;
+console.log(addFun2(9));
+
+
+let thisFun = (age) => { 
+  // console.log(this);
+  return this.age;
+}
+
+// let addVal = new thisFun(9);
+// console.log(addVal);
+
+// Ex:-
+let test = {
+  prop: 42,
+  func: function() {
+    return this.prop;
+  },
+};
+
+console.log(test.func());
+
+const items = [1, 29, 47];
+const copy = [];
+
+items.forEach(function(item, index){
+  copy.push(item*item);
+});
+console.log(copy[1]);
+
+var elements = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
+
+elements.map(function(element) {
+  return element.length;
+}); // this statement returns the array: [8, 6, 7, 9]
+
+// The regular function above can be written as the arrow function below
+elements.map((element) => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When there is only one parameter, we can remove the surrounding parenthesies:
+elements.map(element => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// When the only statement in an arrow function is `return`, we can remove `return` and remove
+// the surrounding curly brackets
+elements.map(element => element.length); // [8, 6, 7, 9]
+
+// In this case, because we only need the length property, we can use destructing parameter:
+// Notice that the string `"length"` corresponds to the property we want to get whereas the
+// obviously non-special `lengthFooBArX` is just the name of a variable which can be changed
+// to any valid variable name you want
+elements.map(({ "length": lengthFooBArX }) => lengthFooBArX); // [8, 6, 7, 9]
+
+// This destructing parameter assignment can be written as seen below. However, note that there
+// is no specific `"length"` to select which property we want to get. Instead, the literal name
+// itself of the variable `length` is used as the property we want to retrieve from the object.
+elements.map(({ length }) => length); // [8, 6, 7, 9]
+
+
+////////////////////////////////////////////  Map Method  //////////////////////////////////////////////
+/*
+map() method creates a new array with the results of calling a provided function on every element -
+in this array.
+
+Definition and Usage
+The map() method creates a new array with the results of calling a function for every array element.
+
+The map() method calls the provided function once for each element in an array, in order.
+
+Note: map() does not execute the function for array elements without values.
+
+Note: map() does not change the original array.
+
+Map method syntax
+var newArray = myArray.map(function);
+*/
+
+// Ex:- 1
+var drinks = ["coffee", "tea", "whiskey"];
+var coldDrinks = drinks.map(function(drink){
+    return "iced " + drink;
+});
+console.log(coldDrinks);
+
+// Ex:- 2
+var numbers = [65, 44, 12, 4]
+function multiplyArrayElement(num) {
+//   return num * document.getElementById("multiplyWith").value;
+    return num * 10;
+}
+function mapFun() {
+    return numbers.map(multiplyArrayElement)
+}
+console.log(mapFun());
+
+// Ex:- 3
+var persons = [
+  {firstname : "Malcom", lastname: "Reynolds"},
+  {firstname : "Kaylee", lastname: "Frye"},
+  {firstname : "Jayne", lastname: "Cobb"}
+];
+function getFullName(item,index) {
+  var fullname = [item.firstname,item.lastname].join(" ");
+  return fullname;
+}
+function mapObjFun() {
+  return persons.map(getFullName);
+}
+console.log(mapObjFun());
+
+var numbers = [1, 4, 9, 3, 2, 7]; 
+var roots = numbers.map(Math.sqrt); 
+console.log("roots is : " + roots );
+
+/*
+%
+?
+*/
+
+
+///////////////////////////////////////  forEach Method  ///////////////////////////////////////////////////////
+var nums = [1,2,3,4,5,6];
+
+nums.forEach(function(any){
+    console.log(any);
+});
+console.log(Array.isArray(nums));
+
+// nums.prototype.forEach(function(any){
+//     console.log(any);
+// });
+
+// const emp = [];
+nums.forEach(function(any){
+//     console.log(any);
+// emp.push(any);
+console.log(nums.push(1));
+});
+
+
+// Ex:- 2
+// const items = [1, 29, 47];
+// const copy = [];
+
+// items.forEach(function(item){
+//   copy.push(item*item);
+// });
+// console.log(copy);
+
+
+
+let arr = [];
+let arr1 = [1,2,3,4,5];
+let arr2 = [6,7,8,9,10];
+
+for(let i=0; i<arr2.length; i++){
+  if(arr1[0]+arr2[i] == 10){
+    console.log(arr1[0] + arr2[i] + " = 10");
+  }
+}
+
+
+// for(var i=0; i<3; i++){
+//     console.log(i);
+// }
+
+var nums = [1,2,3,4,5];
+nums.forEach(function(num){
+    // return num + 5;
+    console.log(num);
+});
+
+console.log("**************** map method ********************");
+var str = [1,2,3,4,5,6,7,8,9];
+var mapArr = str.map((val, i, str) => {
+    return val + 5;
+});
+console.log(mapArr);
+
+
+////////////////////////////////////////////  Inheriance  /////////////////////////////////////////////////
+class Vehicle {
+  constructor (name, type) {
+    this.name = name;
+    this.type = type;
+  }
+ 
+  getName () {
+    return this.name;
+  }
+ 
+  getType () {
+    return this.type;
+  }
+ 
+}
+class Car extends Vehicle {
+  constructor (name, type) {
+    // super(name, 'car');
+    super(name, type);
+    // super();
+    //this.name = name;
+  }
+
+  getName () {
+    // return 'It is a car: ' + super.getName();
+    return this.name;
+  }
+ 
+}
+let car = new Car('Tesla', 'car');
+let v1 = new Vehicle("Maruti", "Aulto");
+console.log(v1.getName()); // Maruti
+console.log(car.getName()); // It is a car: Tesla
+// console.log(car.getType()); // car
